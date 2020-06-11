@@ -10,7 +10,7 @@ class Games extends Component {
         const name: String = "test";
 
         return (
-            <div> <Users name="Kimberly" saySmt={this.saySmtHandle}></Users>
+            <div> <Users name="Kimberly " saySmt={this.saySmtHandle}></Users>
             </div>
         );
     }
