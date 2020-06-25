@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Game from './Game';
+import NewGame from './NewGame';
+import NewGameFormikYup from './NewGameFormikYup';
 
 class Games extends Component {
 
@@ -11,11 +13,7 @@ class Games extends Component {
        }
    }
 
-   addGame = () => {
-       const newGame = {
-            name: 'Game',
-            genre: 'Cars'+this.state.games.length
-       }
+   addGame = (newGame) => {
        this.setState({
             games: [...this.state.games, newGame]
        })
@@ -37,11 +35,16 @@ class Games extends Component {
         const isEven = (i) => { return i%2 === 0};
         return (
             <div> 
-                <h2>Isthmus React Gamestore</h2>
+                
+
+            <h3>Form</h3>
+            <NewGame save={this.addGame}/>
+            <h3>Form FormikYup</h3>
+            <NewGameFormikYup save={this.addGame}/>
+
                 <h3>{this.props.label}</h3>
 
                 <button onClick={(e) => this.toggleDisplay()}>Toggle display list</button>
-                <button onClick={(e) => this.addGame()}>Add game</button>
 
                 {this.state.displayList && 
                     <ul className='games-list'>
